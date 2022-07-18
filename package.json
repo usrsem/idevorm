@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/usrsem/idevorm/issues"
   },
-  "homepage": "https://github.com/usrsem/idevorm#readme"
+  "homepage": "https://github.com/usrsem/idevorm#readme",
+  "devDependencies": {
+    "mocha": "^10.0.0"
+  }
 }
