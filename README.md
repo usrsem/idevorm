@@ -67,7 +67,7 @@ const uow = orm.getDeclarativeRepositoryUow();
 Or use more functional syntax:
 ```js
 (async () => {
-  await orm.run((uow) => {
+  await orm.run(async (uow) => {
     const client = {
       telegramId: 0,
       telegramUsername: 'testUsername',
@@ -83,3 +83,5 @@ Also you can get repository object directly:
 ```js
 const clientRepository = orm.getRepository('client');
 ```
+
+Full code example you can found in `demo.js`.
