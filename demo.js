@@ -1,10 +1,10 @@
 'use strict';
 
-const orm = require('./application/db/main.js');
-const config = require('./application/config.js');
+const orm = require('./main.js');
+const config = require('./test/config.js');
 
 orm.setDriverName('pg');
-orm.setConfig(config.db.postgres);
+orm.setConfig(config.postgres);
 
 // In schemas file
 orm.addSchema('client', {
@@ -18,7 +18,7 @@ orm.addSchema('client', {
 const uow = orm.getDeclarativeRepositoryUow();
 
 // Declarative style with UoW
-(async () => {
+const demo = async () => {
   try {
     await uow.begin();
     const client = {
@@ -29,25 +29,15 @@ const uow = orm.getDeclarativeRepositoryUow();
     };
     await uow.client.create(client);
     await uow.commit();
+    console.log('Commited');
   } catch (e) {
     console.error(e);
     await uow.rollback();
   }
-});
 
-// or more simple syntax
-(async () => {
-  await orm.run((uow) => {
-    const client = {
-      telegramId: 0,
-      telegramUsername: 'testUsername',
-      telegramFullname: 'testFullname',
-      createdAt: new Date(),
-    };
-    await uow.client.create(client);
-  });
-})();
+  await orm.run(async (uow) => {
+    await uow.client.delete(0);
+  }).then(() => console.log('Deleted'));
+};
 
-
-// Need to run at gracefull shutdown
-(async () => await orm.shutdown())();
+demo().then(() => orm.shutdown());
