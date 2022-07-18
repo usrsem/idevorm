@@ -4,6 +4,13 @@ Lightweight ORM library for node js
 ## Supported databases
 * PostgreSql
 
+## RoadMap
+- [x] Basic CRUD repository creating
+- [ ] Dynamic repository methods extending
+- [ ] SqLite support
+- [ ] findBy${fieldName} methods auto generation
+- [ ] DDL generation from schemas
+
 ## Demo
 
 At first setup orm with db name and it's config:
@@ -32,7 +39,7 @@ orm.addSchema('client', {
 });
 ```
 First argument - table name, second - schema, where one field should has
-propery `id: true`.
+property `id: true`.
 
 After that import `idevorm` from any place in project and get declarative
 Unit of Work, that contains repositories for all schemas:
@@ -70,8 +77,9 @@ Or use more functional syntax:
     await uow.client.create(client);
 })();
 ```
+You can return some value from `orm.run` method.
 
-Also you can get repository directly:
+Also you can get repository object directly:
 ```js
 const clientRepository = orm.getRepository('client');
 ```
