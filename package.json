@@ -1,0 +1,20 @@
+{
+  "name": "idevorm",
+  "version": "1.0.0",
+  "description": "Lightweight ORM library for node js",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/usrsem/idevorm.git"
+  },
+  "keywords": [],
+  "author": "idevtier <idevtier@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/usrsem/idevorm/issues"
+  },
+  "homepage": "https://github.com/usrsem/idevorm#readme"
+}
