@@ -15,14 +15,20 @@ const loadTestModules = (dirPath) =>
 const runTests = (path) => {
   const dirNames = getDirectories(path);
 
-  for (const dirName of dirNames) {
-    const dirPath = `${path}/${dirName}`;
-    const run = () => loadTestModules(dirPath)
-      .forEach((module) => module());
-    describe(dirName, run);
+  if (dirNames.length > 0) {
+    for (const dirName of dirNames) {
+      console.log('dirName', dirName);
+      const dirPath = `${path}/${dirName}`;
+      const run = () => loadTestModules(dirPath)
+        .forEach((module) => module());
+      describe(dirName, run);
+    }
+  } else {
+    loadTestModules(path).forEach((module) => module());
   }
 };
 
 const unitTestsPath = `${__dirname}/unit/`;
+console.log(unitTestsPath);
 
 describe('Unit', () => runTests(unitTestsPath));
