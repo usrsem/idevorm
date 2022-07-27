@@ -6,7 +6,7 @@ Lightweight ORM library for node js
 
 ## RoadMap
 - [x] Basic CRUD repository creating
-- [ ] Dynamic repository methods extending
+- [x] Dynamic repository methods extending
 - [ ] SqLite support
 - [ ] findBy${fieldName} methods auto generation
 - [ ] DDL generation from schemas
