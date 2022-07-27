@@ -7,10 +7,13 @@ const CrudRepository = require('../../lib/crud-repository.js');
 
 module.exports = () => describe('Class extender', () => {
   it('Creates new extended class', () => {
-    const extension = { foo: () => {} };
-    const cls = extend(CrudRepository, extension);
-    assert.notStrictEqual(cls, CrudRepository);
-    assert.strictEqual(cls.foo, extension.foo);
+    class Foo {}
+    const extension = { bar() {} };
+    const FooExtended = extend(Foo, extension);
+    assert.notStrictEqual(FooExtended, Foo);
+
+    const foo = new FooExtended();
+    assert.strictEqual(foo.bar, extension.bar);
   });
 
   it('Gives default name', () => {
