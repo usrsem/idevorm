@@ -7,5 +7,11 @@ module.exports = {
     database: process.env['IDEVORM_POSTGRES_DB_NAME'] || 'postgres',
     user: process.env['IDEVORM_POSTGRES_USER'] || 'postgres',
     password: process.env['IDEVORM_POSTGRES_PASSWORD'] || 'postgres',
-  }
+  },
+  clientSchema: {
+    telegramId: { id: true, type: 'integer' },
+    telegramUsername: { type: 'string', optional: true },
+    telegramFullname: { type: 'string' },
+    createdAt: { type: 'date' },
+  },
 };

@@ -29,6 +29,8 @@ const runTests = (path) => {
 };
 
 const unitTestsPath = `${__dirname}/unit/`;
+const integrationTestsPath = `${__dirname}/integration/`;
 console.log(unitTestsPath);
 
 describe('Unit', () => runTests(unitTestsPath));
+describe('Integration', () => runTests(integrationTestsPath));
